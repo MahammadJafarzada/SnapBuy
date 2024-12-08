@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import React, { useCallback, useState } from 'react'
 import tw from 'twrnc'
 import CustomButton from '../../components/CustomButton'
@@ -48,6 +48,11 @@ const Login = () => {
             disabled={isLoading}
             style={isLoading ? tw`bg-gray-400` : tw`bg-blue-500`}
           />
+        </View>
+        <View style={tw`mt-4`}>
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <Text style={tw`text-blue-500`}>Qeydiyyatdan keç</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
