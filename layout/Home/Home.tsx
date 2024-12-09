@@ -1,12 +1,12 @@
-import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import React, { useState } from "react";
+import { View, Text, Image, TouchableOpacity, FlatList } from "react-native";
 import tw from "twrnc";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { NavigationProp, useNavigation } from "@react-navigation/native";
-import { RootStackParamList } from "../../types";
+import { useNavigation } from "@react-navigation/native";
 import { products } from "../../src/utils/ProductsAPI";
+import { HomeScreenNavigationProp } from "../../types";
 
-type Product = {
+export type Product = {
   id: number;
   title: string;
   price: number;
@@ -14,18 +14,17 @@ type Product = {
 };
 
 const Home = () => {
-  const [cartCount, setCartCount] = useState(0);
-  const [numColumns, setNumColumns] = useState(2); 
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>();
+  const [cart, setCart] = useState<Product[]>([]);  // Store cart items
+  const navigation = useNavigation<HomeScreenNavigationProp>(); // Use Home navigation prop
 
   const handleAddToCart = (product: Product) => {
-    setCartCount(cartCount + 1);
+    setCart((prevCart) => [...prevCart, product]);  // Add product to cart
   };
 
   const renderItem = ({ item }: { item: Product }) => (
     <View key={item.id} style={tw`flex-1 justify-around bg-gray-100 rounded-lg shadow-md p-4 mb-4`}>
       <Image
-        style={[tw`h-40 rounded-lg mb-4 self-center`, { width: '100%' }]}  
+        style={[tw`h-40 rounded-lg mb-4 self-center`, { width: '100%' }]}
         source={{ uri: item.images[0] }}
       />
       <View style={tw`items-center mb-4`}>
@@ -47,18 +46,16 @@ const Home = () => {
         data={products}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
-        numColumns={numColumns}
-        key={numColumns}
+        numColumns={2}
         contentContainerStyle={tw`pb-20`}
-        columnWrapperStyle={tw`justify-between`} 
+        columnWrapperStyle={tw`justify-between`}
       />
-
       <View style={tw`flex-row justify-center items-center py-4`}>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Basket")}
+          onPress={() => navigation.navigate("Basket", { cart })} // Pass cart to Basket screen
           style={tw`bg-red-500 rounded-full px-6 py-3`}
         >
-          <Text style={tw`text-white font-bold`}>Basket: {cartCount}</Text>
+          <Text style={tw`text-white font-bold`}>Basket: {cart.length}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
