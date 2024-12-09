@@ -5,6 +5,7 @@ import Login from "../screens/Login/Login";
 import { RootStackParamList } from "../../types";
 import Register from "../screens/Register/Register";
 import Home from "../../layout/Home/Home";
+import Basket from "../screens/Basket/Basket";
 
 const AppNavigation: React.FC = () => {
   const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -25,6 +26,11 @@ const AppNavigation: React.FC = () => {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Basket"
+          component={Basket}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
