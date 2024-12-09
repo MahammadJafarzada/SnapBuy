@@ -16,9 +16,32 @@ const Register = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const handleRegister = () => {
-    // Add your registration logic here
+    if (!usernameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
+      alert("Zəhmət olmasa bütün sahələri doldurun");
+      return;
+    }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailInput)) {
+      alert("Düzgün e-poçt ünvanı daxil edin");
+      return;
+    }
+  
+    if (passwordInput !== confirmPasswordInput) {
+      alert("Şifrələr uyğun gəlmir");
+      return;
+    }
+  
+    setIsLoading(true); 
+  
+    setTimeout(() => {
+      setIsLoading(false); 
+  
+      alert("Qeydiyyat uğurla tamamlandı!");
+      navigation.navigate("Login"); 
+    }, 2000); 
   };
-
+  
+  
   const togglePasswordVisibility = useCallback(() => {
     setIsPasswordVisible((prev) => !prev);
   }, []);
