@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "664113542379",
+    "project_id": "snapbuy-8d7d2",
+    "storage_bucket": "snapbuy-8d7d2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664113542379:android:c2724872b355cf4b28faae",
+        "android_client_info": {
+          "package_name": "com.mahammadjafar.SnapBuy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSCWWqD1ODnM4_wJ1XX3fbgA9oH0CqYBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
