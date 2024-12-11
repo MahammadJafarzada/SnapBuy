@@ -1,13 +1,15 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import AppNavigation from "./src/navigation/AppNavigation";
-import { NavigationContainer } from "@react-navigation/native";
-import tw from 'twrnc'
+import tw from "twrnc";
+import { StatusBar } from "expo-status-bar";
+import { Provider } from "react-redux";
+import { store } from "./src/redux/store";
 
 export default function App() {
   return (
-    <SafeAreaView style={tw`flex-1`}>
-      <AppNavigation />
-    </SafeAreaView>
+    <Provider store={store}>
+      <StatusBar style="auto" hidden={false} />
+        <AppNavigation />
+    </Provider>
   );
 }

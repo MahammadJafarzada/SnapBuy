@@ -1,3 +1,22 @@
+export const categories = [
+  {
+    id: 1,
+    name: "Electronics",
+    description: "Devices, gadgets, and accessories.",
+  },
+  {
+    id: 2,
+    name: "Clothing",
+    description: "Men's and women's fashion.",
+  },
+  {
+    id: 3,
+    name: "Home Appliances",
+    description: "Appliances for home use.",
+  },
+];
+
+
 export const products = [
   {
     id: 1,
