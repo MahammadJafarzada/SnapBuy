@@ -1,6 +1,6 @@
 #  SnapBuy App
 
-Welcome to the SnapBuy App! This is a cross-platform mobile application built with React Native that provides users with a seamless shopping experience. The app supports features like product browsing, user authentication, shopping cart management, and secure checkout.
+Welcome to the SnapBuy App! This is a cross-platform mobile application built with React Native that provides users with a seamless shopping experience. The app supports features like product browsing, user authentication and shopping cart management.
 
 ---
 
